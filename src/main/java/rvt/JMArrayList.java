@@ -83,17 +83,7 @@ public class JMArrayList {
         scanner.close();
     }
 
-    public static void removeLast(ArrayList<String> string) {
-        
-        while (true) {
-            int i = 0;
-            if (i == string.size()) {
-                string.remove(i -1);
-                break;
-            }
-            else {
-                i++;
-            }
-        }
+    public static void removeLast(ArrayList<String> strings) {
+        strings.remove(strings.size() - 1);
     }
 }
