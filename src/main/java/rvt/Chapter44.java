@@ -65,11 +65,28 @@ public class Chapter44 {
 
     public static void ex5() {
         Scanner scanner = new Scanner(System.in);
+        boolean inb = false;
 
         while (scanner.hasNextLine()) {
             String lines = scanner.nextLine();
-            if (lines.trim().startsWith("//")) {
-                System.out.println(lines);
+            int slash = lines.indexOf("//");
+            if (slash != -1) {
+                System.out.println(lines.substring(slash));
+            }
+
+            int start = lines.indexOf("/*");
+            int end = lines.indexOf("*/");
+
+            if (start != -1) {
+                inb = true;
+                System.out.println(lines.substring(start));
+            }
+            if (end != -1 && inb) {
+                System.out.println(lines.substring(0, end + 2));
+                inb = false;
+            }
+            if (inb && start == -1) {
+                System.out.println(lines.trim());
             }
         }
         scanner.close();
