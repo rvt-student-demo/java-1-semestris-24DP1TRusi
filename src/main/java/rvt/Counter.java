@@ -1,0 +1,34 @@
+package rvt;
+
+public class Counter {
+    int number;
+
+    public Counter(int startValue) {
+        this.number = startValue;
+    }
+    public Counter() {
+        this.number = 0;
+    }
+
+    public int value() {
+        return this.number;
+    }
+
+    public void increase() {
+        this.number++;
+    }
+    public void increase(int increaseBy) {
+        if (increaseBy >= 0) {
+            this.number = this.number + increaseBy;
+        }
+    }
+
+    public void decrease() {
+        this.number--;
+    }
+    public void decrease(int decreaseBy) {
+        if (decreaseBy >= 0) {
+            this.number = this.number - decreaseBy;
+        }
+    }
+}
