@@ -16,7 +16,9 @@ public class Box {
         this.length = side;
     }
     public Box(Box oldBox) {
-        
+        this.width = oldBox.width;
+        this.height = oldBox.height;
+        this.length = oldBox.length;
     }
 
 
@@ -35,5 +37,33 @@ public class Box {
     }
     public double area() {
         return 2 * faceArea() + 2 * topArea() + 2 * sideArea();
+    }
+
+    public double length() {
+        return length;
+    }
+    public double height() {
+        return height;
+    }
+    public double width() {
+        return width;
+    }
+
+    public Box biggerBox(Box oldBox) {
+        return new Box(1.25*oldBox.width(), 1.25*oldBox.height(), 1.25*oldBox.length());
+    }
+    public Box smallerBox(Box oldBox) {
+        return new Box(0.75*oldBox.width(), 0.75*oldBox.height(), 0.75*oldBox.length());
+    }
+
+    public boolean nests( Box outsideBox ) {
+        boolean rez = false;
+        if (outsideBox.height > height && outsideBox.length > length && outsideBox.width > width) {
+            rez = true;
+        } else{
+            rez = false;
+        }
+        System.out.println(rez);
+        return rez;
     }
 }
